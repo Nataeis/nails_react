@@ -1,0 +1,385 @@
+$primary-color: #007bff;
+$secondary-color: #6200ea;
+$background-light: #f4f4f4;
+$background-white: #fff;
+$border-color: #ddd;
+$hover-bg: #d1c4e9;
+
+@mixin box-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: $background-light;
+}
+
+.app {
+    max-width: 1920px;
+}
+
+.filters {
+    button {
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: $background-white;
+        cursor: pointer;
+
+        &.active {
+            background: $primary-color;
+            color: $background-white;
+        }
+    }
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background: $primary-color;
+    color: $background-white;
+
+    h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+}
+
+.doctor-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: $background-white;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    @include box-shadow;
+    justify-content: space-between;
+
+    img {
+        border-radius: 50%;
+        margin-right: 15px;
+        width: 60px;
+        height: 60px;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #555;
+    }
+
+    p {
+        margin: 0;
+        color: #777;
+    }
+}
+
+.schedule {
+    padding: 15px;
+    background: $background-white;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    @include box-shadow;
+
+    h4 {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    div {
+        margin: 5px 0;
+        color: #555;
+    }
+}
+
+.doctor-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.location-tabs {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.location-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+
+    &:hover {
+        background: $hover-bg;
+        color: $secondary-color;
+        transform: scale(1.05);
+    }
+
+    &.active {
+        background: $secondary-color;
+        color: $background-white;
+        border-color: $secondary-color;
+        font-weight: bold;
+        transform: scale(1.1);
+    }
+}
+
+.location-day {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.location-date {
+    font-size: 12px;
+    color: #666;
+}
+
+.time-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time-button {
+    padding: 10px 15px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.selected {
+        background: $secondary-color;
+        color: $background-white;
+        font-weight: bold;
+    }
+
+    &:hover {
+        background: $hover-bg;
+    }
+}
+
+.schedule-times {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.schedule-time {
+    padding: 10px 15px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $hover-bg;
+        color: $secondary-color;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        background: $secondary-color;
+        color: $background-white;
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.navigation {
+    display: flex;
+    justify-content: center;
+    background: $primary-color;
+    padding: 10px;
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $hover-bg;
+        }
+    }
+}
+.booking-page {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .booking-info {
+        margin-bottom: 30px;
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    }
+
+    .booking-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            label {
+                font-weight: 600;
+                color: #333;
+            }
+
+            input, textarea {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+
+            textarea {
+                height: 100px;
+                resize: vertical;
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+
+            button {
+                padding: 12px 25px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+
+                &:first-child {
+                    background: #f0f0f0;
+                    color: #333;
+
+                    &:hover {
+                        background: #e0e0e0;
+                    }
+                }
+
+                &:last-child {
+                    background: $primary-color;
+                    color: white;
+
+                    &:hover {
+                        background: darken($primary-color, 10%);
+                    }
+                }
+            }
+        }
+    }
+}
+.color-selection {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: $background-white;
+
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.color-generate-btn {
+    background: $primary-color;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+
+    &:hover:not(:disabled) {
+        background: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+    }
+}
+
+.color-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.color-box {
+    width: 50px;
+    height: 50px;
+    border: 2px solid $border-color;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.color-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.error-message {
+    color: #dc3545;
+    margin: 10px 0;
+}
