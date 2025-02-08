@@ -5,7 +5,7 @@ export interface IDoctor {
     specialization: string;
     image: string;
 }
-// Компонент DoctorInfo
+// Компонент DoctorInfo (карточка мастера)
 const DoctorInfo = ({ doctor }: { doctor: IDoctor }) => (
     <div className="doctor-info">
         <img src={doctor.image} alt={doctor.name} className="doctor-image" />

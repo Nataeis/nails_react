@@ -22,7 +22,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
                 <p>С сайта можно записаться не более двух раз в сутки</p>
 
                 <div className="modal-details">
-                    <p><strong>Доктор:</strong> {doctorName}</p>
+                    <p><strong>Мастер:</strong> {doctorName}</p>
                     <p><strong>Специализация:</strong> {specialization}</p>
                     <p><strong>Дата:</strong> {date}</p>
                     <p><strong>Время:</strong> {time}</p>
